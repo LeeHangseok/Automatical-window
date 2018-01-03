@@ -22,7 +22,33 @@ void loop() {
       case 0x00FF6897 : //Key 0
       Serial.println("Press '0'"); // 시리얼 통신으로 데이터 출력 
       break;
-      
+      case 0x00FF30CF : // Key1
+      Serial.println("Press '1'");
+      break;
+      case 0x00FF18E7 : //Key 2
+      Serial.println("Press '2'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF7A85 : //Key 3
+      Serial.println("Press '3'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF10EF : //Key 4
+      Serial.println("Press '4'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF38C7 : //Key 5
+      Serial.println("Press '5'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF5AA5 : //Key 6
+      Serial.println("Press '6'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF42BD : //Key 7
+      Serial.println("Press '7'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF4AB5 : //Key 8
+      Serial.println("Press '8'"); // 시리얼 통신으로 데이터 출력 
+      break;
+      case 0x00FF52AD : //Key 9
+      Serial.println("Press '9'"); // 시리얼 통신으로 데이터 출력 
+      break;
       default:
       break;
       }
