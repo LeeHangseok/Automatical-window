@@ -1,0 +1,15 @@
+int LED_R = 11; // RED LED Pin
+int LED_G = 10; // GREEN LED Pin
+int LED_B = 9; // BLUE LED Pin
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(LED_R, OUTPUT); // RED LED OUTPUT SETTING
+pinMode(LED_G, OUTPUT); // GREEN LED OUTPUT SETTING
+pinMode(LED_B, OUTPUT); //BLUE LED OUTPUT SEETING
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
