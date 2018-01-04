@@ -5,3 +5,4 @@ So I want to make this device.
 With Using Arduino Uno R3 , RGB LED, IR Controller sensor, rain sensor, step motor(SERVO 9G), RGB LED sensor
 ivanseidel/ArduinoThread (MIT lisence) - library,
 Servo (GNU lisence) -library
+IRremote - library
