@@ -13,6 +13,9 @@ char bt;  //blutooth message
 int fm; // flame power
 
 
+char c; // blutooth mesaage
+char bt;  //blutooth message
+
 void setup() {
   // put your setup code here, to run once:
   btSerial.begin(9600); //blutooth communication
@@ -73,7 +76,6 @@ float temperature = reading * 500.0 / 1024.0;   //calculate temperature
 void flame(){
   
   }
-
 
 void loop() {
   // put your main code here, to run repeatedly:
