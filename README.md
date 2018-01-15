@@ -32,3 +32,5 @@ Servo (GNU lisence) -library
 ===== 5 = servo
 
 ===== 9,10,11 = RGB_LED
+
+===== 8 = Buzzer_pin
