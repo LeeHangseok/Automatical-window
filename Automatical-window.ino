@@ -5,6 +5,13 @@ SoftwareSerial btSerial(2,3);// 2th, 3th pin is blutooth pin
 Servo myservo; // servo variation
 const int servoPin = 5; // servo pin
 int sensorPin = A0; // rain drop sensor pin
+int degreePin = A1; // temperature sensor pin
+int flamePin = A3; // flame sesor pin
+
+char c; // blutooth mesaage
+char bt;  //blutooth message
+int fm; // flame power
+
 
 char c; // blutooth mesaage
 char bt;  //blutooth message
@@ -14,6 +21,7 @@ void setup() {
   btSerial.begin(9600); //blutooth communication
   Serial.begin(9600); // Serial Communication Speed Setting
  myservo.attach(servoPin); // 5th pin is servo pin 
+ pinMode(flame,INPUT); //flame pin is A3
 }
 
 void blu(){ //connect blutooth
@@ -30,6 +38,9 @@ void blu(){ //connect blutooth
     }
   }
 void window(){
+int reading = analogRead(degreePin); // read degree
+float temperature = reading * 500.0 / 1024.0;   //calculate temperature
+  
   blu();
   if(bt == 1){ // if select Auto
       if(analogRead(A0)<500){ // if it's raining
@@ -55,12 +66,16 @@ void window(){
       myservo.write(150);
       delay(500);
       }
+
+      btSerial.println(temperature);
+      delay(500);
   }
 
 
 
-
-
+void flame(){
+  
+  }
 
 void loop() {
   // put your main code here, to run repeatedly:
