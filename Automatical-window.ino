@@ -7,14 +7,15 @@ const int servoPin = 5; // servo pin
 int sensorPin = A0; // rain drop sensor pin
 int degreePin = A1; // temperature sensor pin
 int flamePin = A3; // flame sesor pin
+int LED_R = 11; // RED_LED pin
+int LED_G = 10; // GREEN_LED pin
+int LED_B = 9; // BLUE_LED pin
+int Buzzer = 8; // Buzzer pin
 
 char c; // blutooth mesaage
 char bt;  //blutooth message
 int fm; // flame power
 
-
-char c; // blutooth mesaage
-char bt;  //blutooth message
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,7 +23,25 @@ void setup() {
   Serial.begin(9600); // Serial Communication Speed Setting
  myservo.attach(servoPin); // 5th pin is servo pin 
  pinMode(flame,INPUT); //flame pin is A3
+ pinMode(LED_R,OUTPUT); // LED_R is OUTPUT
+ pinMode(LED_G,OUTPUT); // LED_G is OUTPUT
+ pinMode(LED_B,OUTPUT); // LED_B is OUTPUT
 }
+
+void led_on(int R, int G, int B, int ontime){
+  analogWrite(LED_R,R); // PWM signal OUTPUT
+  analogWrite(LED_G,G); // PWM signal OUTPUT
+  analogWrite(LED_B,B); // PWM signal OUTPUT
+  delay(ontime); // Delay time
+  led_off(); // turn off LED
+  }
+
+void led_off(){ // Turn off LED
+   analogWrite(LED_R,0);
+  analogWrite(LED_G,0); 
+  analogWrite(LED_B,0); 
+  }
+
 
 void blu(){ //connect blutooth
   if(btSerial.available()){ // if sensor operate
@@ -74,8 +93,12 @@ float temperature = reading * 500.0 / 1024.0;   //calculate temperature
 
 
 void flame(){
-  
+  fm = analogRead(flame); // read flame
+  if (fm>500){ // when flame detected
+    
+    }
   }
+
 
 void loop() {
   // put your main code here, to run repeatedly:
