@@ -90,13 +90,30 @@ float temperature = reading * 500.0 / 1024.0;   //calculate temperature
       delay(500);
   }
 
+void siren(){ // siren
+  for(int freq = 150;freq<=1800;freq=freq+2){
+  tone(9,freq,10);
+  }
 
-
-void flame(){
-  fm = analogRead(flame); // read flame
-  if (fm>500){ // when flame detected
-    
+  for(int freq = 1800; freq <=150; freq = freq-2){
+    tone(9,freq,10);
     }
+  }
+
+void fire(){ // read flame
+  fm = analogRead(flame); // read flame
+  delay(200); // delay 200ms
+  }
+
+void flame(){ //flame react
+  fire();
+  if (fm>500){ // when flame detected
+    led_on(255,0,0,700); // red led remain 700ms
+    siren();
+    }
+    else { // flame doesn't detected
+      led_on(0,255,0,700); // green led on
+      }
   }
 
 
