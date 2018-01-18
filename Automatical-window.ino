@@ -1,3 +1,5 @@
+#include <Thread.h> //MIT Lisence
+#include <ThreadController.h> //MIT Lisence
 #include <Servo.h> //Servo Library, GNU Lisence
 #include <SoftwareSerial.h> // blutooth library
 SoftwareSerial btSerial(2,3);// 2th, 3th pin is blutooth pin
@@ -16,6 +18,9 @@ char c; // blutooth mesaage
 char bt;  //blutooth message
 int fm; // flame power
 
+Thread myThread1 = Thread(); // Automatical Window Thread
+Thread myThread2 = Thread(); // flame function Thread
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,6 +31,12 @@ void setup() {
  pinMode(LED_R,OUTPUT); // LED_R is OUTPUT
  pinMode(LED_G,OUTPUT); // LED_G is OUTPUT
  pinMode(LED_B,OUTPUT); // LED_B is OUTPUT
+
+
+ myThread1.onRun(window); // Create Thread window
+ myThread1.setInterval(100); // Thread Interval 100ms
+ myThread2.onRun(flame); // Create Thread flame
+ myThread2.setInterval(100); // Thread Interval 100ms
 }
 
 void led_on(int R, int G, int B, int ontime){
@@ -119,6 +130,7 @@ void flame(){ //flame react
 
 void loop() {
   // put your main code here, to run repeatedly:
-  window();
+  if(myThread1.shouldRun()) myThread1.run();  // if Auto thread should run, use
+  if(myThread2.shouldRun()) myThread2.run(); // if flame thread should run, use
 
 }
